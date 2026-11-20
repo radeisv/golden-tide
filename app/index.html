@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golden Tide — GTA-style cover studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">GT</span> Golden Tide</div>
+  <p class="brand-sub">Turn any photo into a GTA-style cover — six panels, one sunset, three sizes.</p>
+</header>
+<main class="app">
+  <section class="stage">
+    <canvas id="preview" width="1920" height="1080" aria-label="Live cover preview"></canvas>
+    <p class="hint">Click a panel on the cover to select it, then click again to set its focal point.</p>
+    <div class="size-row" role="group" aria-label="Cover size">
+      <button type="button" id="size-landscape" data-size class="active">Landscape 1920 × 1080</button>
+      <button type="button" id="size-portrait" data-size>Portrait 1080 × 1350</button>
+      <button type="button" id="size-square" data-size>Square 1080 × 1080</button>
+    </div>
+    <div class="export-row" role="group" aria-label="Export PNG">
+      <button type="button" id="export-landscape">Export PNG · Landscape</button>
+      <button type="button" id="export-portrait">Export PNG · Portrait</button>
+      <button type="button" id="export-square">Export PNG · Square</button>
+    </div>
+    <p id="status" role="status"></p>
+  </section>
+  <aside class="controls">
+    <section class="group">
+      <h2>Grade</h2>
+      <div class="preset-row">
+        <button type="button" id="preset-golden" data-preset class="active">Golden Hour</button>
+        <button type="button" id="preset-neon" data-preset>Neon Nights</button>
+        <button type="button" id="preset-pastel" data-preset>Vice Pastel</button>
+        <button type="button" id="preset-noir" data-preset>Noir Gold</button>
+      </div>
+      <label>Treatment <input id="treatment" type="range" min="0" max="100" step="1" value="80"> <span id="treatment-val">80%</span></label>
+      <label>Poster Ink <input id="ink" type="range" min="0" max="100" step="1" value="0"> <span id="ink-val">0%</span></label>
+    </section>
+    <section class="group">
+      <h2>Words</h2>
+      <label>Title <input id="title" type="text" value="GOLDEN TIDE"></label>
+      <label>Script subtitle <input id="script" type="text" value="chasing the last light"></label>
+      <label>Press quote <input id="quote" type="text" value="SALT, SUN, AND A GETAWAY PLAN"></label>
+      <label>Paper <input id="paper" type="text" value="THE TIDE HERALD"></label>
+      <label>Location plate <input id="location" type="text" value="GOLDEN PIER · 6:47 PM"></label>
+      <label>Ribbon <input id="ribbon" type="text" value="SIX FACES · ONE TIDE · NO TURNING BACK"></label>
+      <label>Billing <input id="billing" type="text" value="A TIDEWORKS PICTURE · STARRING YOU · SHOT ON YOUR OWN CAMERA · GRADED BY HAND"></label>
+      <label>Bottom line <input id="bottom-line" type="text" value="OUT AT FIRST LIGHT"></label>
+      <label>Issue badge <input id="badge" type="text" value="ISSUE 01"></label>
+      <label>Seal <input id="seal" type="text" value="HAND-GRADED ART"></label>
+    </section>
+    <section class="group">
+      <h2>Photos</h2>
+      <label class="upload">Add photos (fills panels from the selected one)
+        <input id="upload-all" type="file" accept="image/*" multiple>
+      </label>
+      <div id="panels"></div>
+    </section>
+  </aside>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
